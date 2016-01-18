@@ -1,0 +1,7 @@
+Gold Challenge: Another Class
+
+Create a subclass of BNRItem called BNRContainer.
+An instance of BNRContainer should have an array of subitems that contains instances of BNRItem.
+Printing the description of a BNRContainer object should show you the name of the container, its value in dollars (a sum of all items in the container plus the value of the container itself), and a list of every instance of BNRItem it contains.
+A properly-written BNRContainer class can contain instances of BNRContainer.
+It can also report back its full value and every contained item properly.
