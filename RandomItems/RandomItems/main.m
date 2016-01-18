@@ -76,6 +76,7 @@ int main(int argc, const char * argv[]) {
 		NSLog(@"%@", randomItem);
 		*/
 		
+		/*
 		// RANDOM ITEMS: Fill the items array with 10 random items and log each of them
 		for(int i = 0; i < 10; i++) {
 			BNRItem *newItem = [BNRItem randomItem];
@@ -85,6 +86,7 @@ int main(int argc, const char * argv[]) {
 		for(BNRItem *item in items) {
 			NSLog(@"%@", item);
 		}
+		*/
 		
 		/*
 		// SILVER CHALLENGE: Another Initializer
@@ -103,8 +105,16 @@ int main(int argc, const char * argv[]) {
 		// EXCEPTION: BEYOND BOUNDS
 		//id noObj = [items objectAtIndex:12];
 		
+		// BACKPACK
+		BNRItem *backpack = [[BNRItem alloc] initWithItemName:@"Backpack"];
+		BNRItem *calculator = [[BNRItem alloc] initWithItemName:@"Calculator"];
+		backpack.containedItem = calculator;
+		
+		backpack = nil;
+		calculator = nil;
 		
 		// Destroy the mutable array object
+		NSLog(@"DEATH TO ITEMS!!!");
 		items = nil;
 		
     }

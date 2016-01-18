@@ -107,6 +107,23 @@
     return _dateCreated;
 }
 
+- (void)setContainedItem:(BNRItem *)item {
+    _containedItem = item;
+    
+    // self contains item so item's container is self.
+    item.container = self;
+}
+- (BNRItem *)containedItem {
+    return _containedItem;
+}
+
+- (void)setContainer:(BNRItem *)item {
+    _container = item;
+}
+- (BNRItem *)container {
+    return _container;
+}
+
 // Override the description method
 - (NSString *)description {
     NSString *descriptionString =
@@ -116,5 +133,9 @@
     return descriptionString;
 }
 
+// Override dealloc method
+- (void)dealloc {
+    NSLog(@"Destroyed: %@", self); 
+}
 
 @end

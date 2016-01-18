@@ -15,6 +15,10 @@
     NSString *_serialNumber;
     int _valueInDollars;
     NSDate *_dateCreated;
+    
+    // Allow it to hold another BNRItem
+    BNRItem *_containedItem;
+    __weak BNRItem *_container;
 }
 
 // Class Methods
@@ -46,6 +50,10 @@
 // read only so no setter 
 - (NSDate *)dateCreated;
 
+- (void)setContainedItem:(BNRItem *)item;
+- (BNRItem *)containedItem;
 
+- (void)setContainer:(BNRItem *)item;
+- (BNRItem *)container; 
 
 @end
