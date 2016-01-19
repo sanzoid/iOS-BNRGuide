@@ -10,6 +10,8 @@
 
 @implementation BNRItem
 
+//@synthesize itemName = _itemName;
+
 // Create, configure, and return a BNRItem instance
 + (instancetype)randomItem {
     
@@ -81,7 +83,7 @@
 }
 
 // SETTERS AND GETTERS
-
+/*
 - (void)setItemName:(NSString *)str {
     _itemName = str;
 }
@@ -122,6 +124,15 @@
 }
 - (BNRItem *)container {
     return _container;
+}
+*/
+
+// We want containedItem's setter to do more than the default 
+- (void)setContainedItem:(BNRItem *)item {
+    _containedItem = item;
+    
+    // self contains item so item's container is self.
+    item.container = self;
 }
 
 // Override the description method

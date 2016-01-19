@@ -10,6 +10,7 @@
 
 @interface BNRItem : NSObject
 {
+    /*
     // Instance Variables
     NSString *_itemName;
     NSString *_serialNumber;
@@ -19,7 +20,9 @@
     // Allow it to hold another BNRItem
     BNRItem *_containedItem;
     __weak BNRItem *_container;
+    */
 }
+
 
 // Class Methods
 + (instancetype)randomItem; 
@@ -36,6 +39,7 @@
 // initWithItemName:
 - (instancetype)initWithItemName:(NSString *)name;
 
+/*
 
 // Instance Methods
 - (void)setItemName:(NSString *)str;
@@ -55,5 +59,15 @@
 
 - (void)setContainer:(BNRItem *)item;
 - (BNRItem *)container; 
+*/
+
+
+@property (nonatomic, strong) BNRItem *containedItem;
+@property (nonatomic, weak) BNRItem *container;
+
+@property (nonatomic, copy) NSString *itemName;
+@property (nonatomic, copy) NSString *serialNumber;
+@property (nonatomic) int valueInDollars;
+@property (nonatomic, readonly, strong) NSDate *dateCreated;
 
 @end

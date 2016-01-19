@@ -110,12 +110,15 @@ int main(int argc, const char * argv[]) {
 		BNRItem *calculator = [[BNRItem alloc] initWithItemName:@"Calculator"];
 		backpack.containedItem = calculator;
 		
-		backpack = nil;
-		calculator = nil;
+		[items addObject:backpack];
+		[items addObject:calculator];
 		
 		// Destroy the mutable array object
 		NSLog(@"DEATH TO ITEMS!!!");
 		items = nil;
+		//backpack = nil;
+		//calculator = nil;
+		
 		
     }
     return 0;
