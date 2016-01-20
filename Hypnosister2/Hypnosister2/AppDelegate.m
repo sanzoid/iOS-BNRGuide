@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  Hypnosister
+//  Hypnosister2
 //
 //  Created by Sandy House on 2016-01-19.
 //  Copyright © 2016 sanzapps. All rights reserved.
@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "BNRHypnosisView.h"
-#import "BNRHypnosisViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,70 +18,35 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    // Override point for customization after application launch.
     
     // VIEW CONTROLLER - application window needs a view controller
     UIViewController *viewController = [[UIViewController alloc] init];
     [self.window setRootViewController:viewController];
     
-    // Adding this view controller makes it work
-    //BNRHypnosisViewController *vc = [[BNRHypnosisViewController alloc] init];
-    //self.window.rootViewController = vc;
     
-    /*
     // FIRST BNRHypnosis VIEW
+    NSLog(@"Creating a BNRHypnosisView");
     // FRAME for our first instance of BNRHypnosisView
     //CGRect firstFrame = CGRectMake(160, 240, 100, 150);
     CGRect firstFrame = self.window.bounds;     // make the frame = the bounds of the window (full screen)
     // VIEW - create an instance of the view with the created frame
     BNRHypnosisView *firstView = [[BNRHypnosisView alloc] initWithFrame:firstFrame];
+    //firstView.backgroundColor = [UIColor redColor];
     // add the view to the window
-    //[self.window addSubview:firstView];
-    [viewController.view addSubview:firstView];     // THIS LINE MAKES EVERYTHING WORK
-    */
+    [self.window addSubview:firstView];
     
     /*
-    // SECOND BNRHypnosis VIEW
-    CGRect secondFrame = CGRectMake(20, 30, 50, 50);
-    BNRHypnosisView *secondView = [[BNRHypnosisView alloc] initWithFrame:secondFrame];
-    secondView.backgroundColor = [UIColor blueColor];
-    //[self.window addSubview:secondView];
-    [firstView addSubview:secondView]; // Make it a subview of the firstView
-    */
-    
-    
-    // UIScrollView
-    
-    CGRect screenRect = self.window.bounds;
-    CGRect bigRect = screenRect;
-    bigRect.size.width *= 2.0;
-    //bigRect.size.height *= 2.0;
-    
-    // Create a screen-sized scroll view
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
-    //[self.window addSubview:scrollView];
-    scrollView.pagingEnabled = YES; // creates pages. Page size: bounds/viewport. Cuts up: content area.
-    [viewController.view addSubview:scrollView];
-    
-    // Create a super-sized hypnosis view and add it to scroll view
-    //BNRHypnosisView *hypnosisView = [[BNRHypnosisView alloc] initWithFrame:bigRect];
-    // Create a screen-sized hypnosis view
-    BNRHypnosisView *hypnosisView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
-    [scrollView addSubview:hypnosisView];
-    
-    // Add a second screen-sized hypnosus view on the right
-    screenRect.origin.x += screenRect.size.width;
-    BNRHypnosisView *anotherView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
-    [scrollView addSubview:anotherView];
-    
-    // Tell the scroll view how big its content area is
-    scrollView.contentSize = bigRect.size;
-    
-    
+     // SECOND BNRHypnosis VIEW
+     CGRect secondFrame = CGRectMake(20, 30, 50, 50);
+     BNRHypnosisView *secondView = [[BNRHypnosisView alloc] initWithFrame:secondFrame];
+     secondView.backgroundColor = [UIColor blueColor];
+     //[self.window addSubview:secondView];
+     [firstView addSubview:secondView]; // Make it a subview of the firstView
+     */
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
     return YES;
 }
 

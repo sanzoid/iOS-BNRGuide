@@ -1,10 +1,11 @@
 //
 //  BNRHypnosisView.m
-//  Hypnosister
+//  Hypnosister2
 //
 //  Created by Sandy House on 2016-01-19.
 //  Copyright © 2016 sanzapps. All rights reserved.
 //
+
 
 #import "BNRHypnosisView.h"
 
@@ -24,14 +25,10 @@
         // Default colors
         self.backgroundColor = [UIColor clearColor];
         self.circleColor = [UIColor redColor];
-        NSLog(@"eewe");
-        //self.userInteractionEnabled = YES;
     }
     
     return self;
 }
-
-
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -46,18 +43,18 @@
     
     // A SINGLE CIRCLE
     /*
-    // RADIUS: min(width or height) divided by 2
-    float radius = (MIN(bounds.size.width, bounds.size.height) / 2.0);
-    
-    // UIBezierPath: Create an instance
-    UIBezierPath *path = [[UIBezierPath alloc] init];
-    // define a CIRCLE-shaped path - add an arc to the path at center.
-    [path addArcWithCenter:center
-                    radius:radius
-                startAngle:0.0
-                  endAngle:M_PI * 2.0
-                 clockwise:YES];
-    */
+     // RADIUS: min(width or height) divided by 2
+     float radius = (MIN(bounds.size.width, bounds.size.height) / 2.0);
+     
+     // UIBezierPath: Create an instance
+     UIBezierPath *path = [[UIBezierPath alloc] init];
+     // define a CIRCLE-shaped path - add an arc to the path at center.
+     [path addArcWithCenter:center
+     radius:radius
+     startAngle:0.0
+     endAngle:M_PI * 2.0
+     clockwise:YES];
+     */
     
     // CONCENTRIC CIRCLES
     // Draw the largest circle and then smaller circles
@@ -88,29 +85,28 @@
     [path stroke];
     
     /*
-    // DRAWING AN IMAGE
-    // Rectangle to draw it in
-    CGRect logoRect = CGRectMake(bounds.origin.x, bounds.size.height/2.0 - bounds.size.width/2.0, bounds.size.width, bounds.size.width);
-    // Create UIImage instance
-    UIImage *logoImage = [UIImage imageNamed:@"180"];
-    // Draw the Image in the Rect
-    [logoImage drawInRect:logoRect];
-    */
+     // DRAWING AN IMAGE
+     // Rectangle to draw it in
+     CGRect logoRect = CGRectMake(bounds.origin.x, bounds.size.height/2.0 - bounds.size.width/2.0, bounds.size.width, bounds.size.width);
+     // Create UIImage instance
+     UIImage *logoImage = [UIImage imageNamed:@"180"];
+     // Draw the Image in the Rect
+     [logoImage drawInRect:logoRect];
+     */
     
 }
 
 // Override touchesBegan:withEvent:
 // This is when a finger touches the screen
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    //- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     NSLog(@"I was touched");
     
     // Get 3 random numbers between 0 and 1 to generate a random color
-    float red = (arc4random() % 100) / 100.0;
-    float green = (arc4random() % 100) / 100.0;
-    float blue = (arc4random() % 100) / 100.0;
-    
-    NSLog(@"%f, %f, %f", red, green, blue);
+    float red = (arc4random() % 100) / 100;
+    float green = (arc4random() % 100) / 100;
+    float blue = (arc4random() % 100) / 100;
     
     UIColor *randomColor = [UIColor colorWithRed:red
                                            green:green
@@ -118,21 +114,6 @@
                                            alpha:1.0];
     self.circleColor = randomColor;
     
-    
-    // Get 3 random numbers between 0 and 1 to generate a random color
-    float red2 = (arc4random() % 100) / 100.0;
-    float green2 = (arc4random() % 100) / 100.0;
-    float blue2 = (arc4random() % 100) / 100.0;
-    
-    NSLog(@"%f, %f, %f", red2, green2, blue2);
-    
-    UIColor *randomColor2 = [UIColor colorWithRed:red2
-                                           green:green2
-                                            blue:blue2
-                                           alpha:1.0];
-    self.backgroundColor = randomColor2;
-    
-
 }
 
 - (void)setCircleColor:(UIColor *)circleColor {
