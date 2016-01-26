@@ -24,6 +24,11 @@
     BNRItemsViewController *itemsViewController = [[BNRItemsViewController alloc] init];
     self.window.rootViewController = itemsViewController;
     
+    // Create an instance of UINavigationController where its ROOT VIEW CONTROLLER is itemsViewController (the root screen)
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
+    
+    // set the navigatin controller as the window's root view controller
+    self.window.rootViewController = navController;
     
     
     self.window.backgroundColor = [UIColor whiteColor];

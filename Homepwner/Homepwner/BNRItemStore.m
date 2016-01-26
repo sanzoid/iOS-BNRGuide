@@ -8,6 +8,7 @@
 
 #import "BNRItemStore.h"
 #import "BNRItem.h"
+#import "BNRImageStore.h"
 
 @interface BNRItemStore ()
 
@@ -59,6 +60,30 @@
     [self.privateAllItems addObject:item];
     
     return item;
+}
+
+- (void)removeItem:(BNRItem *)item
+{
+    // Remove image from image store 
+    NSString *key = item.itemKey;
+    [[BNRImageStore sharedStore] deleteImageForKey:key];
+    
+    [self.privateAllItems removeObjectIdenticalTo:item];
+}
+
+- (void)moveItemAtIndex:(NSUInteger)fromIndex
+                toIndex:(NSUInteger)toIndex
+{
+    if (fromIndex == toIndex) {
+        return;
+    }
+    
+    BNRItem *item = [self.privateAllItems objectAtIndex:fromIndex];
+    
+    // Remove from array
+    [self.privateAllItems removeObjectAtIndex:fromIndex];
+    // Readd to array
+    [self.privateAllItems insertObject:item atIndex:toIndex];
 }
 
 // Getter for allItems. Return privateAllItems, an NSMutableArray, as an NSArray. (NSMutableArray is an NSArray)
