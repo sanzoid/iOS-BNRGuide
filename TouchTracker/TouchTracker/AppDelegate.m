@@ -1,14 +1,14 @@
 //
 //  AppDelegate.m
-//  Homepwner
+//  TouchTracker
 //
-//  Created by Sandy House on 2016-01-22.
+//  Created by Sandy House on 2016-01-26.
 //  Copyright © 2016 sanzapps. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "BNRItemsViewController.h"
-#import "BNRItemStore.h"
+#import "BNRDrawViewController.h"
+#import "BNRDrawView.h"
 
 @interface AppDelegate ()
 
@@ -21,16 +21,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    // Create an instance of BNRItemsViewController and set it as the window's ROOT VIEW CONTROLLER
-    BNRItemsViewController *itemsViewController = [[BNRItemsViewController alloc] init];
-    self.window.rootViewController = itemsViewController;
-    
-    // Create an instance of UINavigationController where its ROOT VIEW CONTROLLER is itemsViewController (the root screen)
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
-    
-    // set the navigatin controller as the window's root view controller
-    self.window.rootViewController = navController;
-    
+    // Create an instance of BNRDrawViewController and set it as the rootViewController of the window.
+    BNRDrawViewController *drawViewController = [[BNRDrawViewController alloc] init];
+    self.window.rootViewController = drawViewController; 
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -46,12 +39,6 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
-    BOOL success = [[BNRItemStore sharedStore] saveChanges];
-    if (success) {
-        NSLog(@"Saved all of the BNRItems");
-    } else {
-        NSLog(@"Could not save any of the BNRItems"); 
-    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

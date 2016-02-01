@@ -99,4 +99,77 @@
     NSLog(@"Destroyed: %@", self); 
 }
 
+
+// NSCODER
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.itemName forKey:@"itemName"];
+    [aCoder encodeObject:self.serialNumber forKey:@"serialNumber"];
+    [aCoder encodeObject:self.dateCreated forKey:@"dateCreated"];
+    [aCoder encodeObject:self.itemKey forKey:@"itemKey"];
+    
+    [aCoder encodeInt:self.valueInDollars forKey:@"valueInDollars"];
+    
+    [aCoder encodeObject:self.thumbnail forKey:@"thumbnail"];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    
+    if(self) {
+        _itemName = [aDecoder decodeObjectForKey:@"itemName"];
+        _serialNumber = [aDecoder decodeObjectForKey:@"serialNumber"];
+        _dateCreated = [aDecoder decodeObjectForKey:@"dateCreated"];
+        _itemKey = [aDecoder decodeObjectForKey:@"itemKey"];
+        
+        _valueInDollars = [aDecoder decodeIntForKey:@"valueInDollars"];
+        
+        _thumbnail = [aDecoder decodeObjectForKey:@"thumbnail"]; 
+    }
+    
+    return self; 
+}
+
+// THUMBNAIL IAMGE
+- (void)setThumbnailFromImage:(UIImage *)image
+{
+    CGSize origImageSize = image.size;
+    
+    // Thumbnail's rectangle
+    CGRect newRect = CGRectMake(0, 0, 40, 40);
+    
+    // Scaling ratio - fit the image within the rectangle
+    float ratio = MAX(newRect.size.width / origImageSize.width,
+                      newRect.size.height / origImageSize.height);
+    
+    // Transparent bitmap
+    UIGraphicsBeginImageContextWithOptions(newRect.size, NO, 0.0);
+    
+    // Rounded rectangle path
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:newRect
+                                                    cornerRadius:5.0];
+    
+    // All subsequent drawing will clip to rounded rectangle
+    [path addClip];
+    
+    // Center image in the thumbnail rectangle
+    CGRect projectRect;
+    projectRect.size.width = ratio * origImageSize.width;
+    projectRect.size.height = ratio * origImageSize.height;
+    projectRect.origin.x = (newRect.size.width - projectRect.size.width) / 2.0;
+    projectRect.origin.y = (newRect.size.height - projectRect.size.height) / 2.0;
+    
+    // Draw the image on it
+    [image drawInRect:projectRect];
+    
+    // Get image from image context and keep it as our thumbnail
+    UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+    self.thumbnail = smallImage;
+    
+    // Clean up image contesxt resources
+    UIGraphicsEndImageContext(); 
+    
+}
+
 @end

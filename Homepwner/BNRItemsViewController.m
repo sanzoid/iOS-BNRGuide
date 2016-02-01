@@ -11,9 +11,13 @@
 #import "BNRItem.h"
 #import "BNRItemStore.h"
 #import "BNRDetailViewController.h"
+#import "BNRItemCell.h"
+#import "BNRImageStore.h"
+#import "BNRImageViewController.h"
 
-@interface BNRItemsViewController ()
+@interface BNRItemsViewController () <UIPopoverControllerDelegate>
 
+@property (nonatomic, strong) UIPopoverController *imagePopover;
 //@property (nonatomic, strong) IBOutlet UIView *headerView;
 
 @end
@@ -65,19 +69,63 @@
     return [[[BNRItemStore sharedStore] allItems]count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Create a UITableViewCell instance with default style
     //UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     
     // Get a new or recycled cell
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    BNRItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BNRItemCell"
+                                                       forIndexPath:indexPath];
     
     // Get the item at index
     BNRItem *item = [[[BNRItemStore sharedStore] allItems] objectAtIndex: indexPath.row];
     
     // Set the textLabel's text to the item's description
-    cell.textLabel.text = [item description];
+    //cell.textLabel.text = [item description];
+    
+    // Configure the BNRItem cell
+    cell.nameLabel.text = item.itemName;
+    cell.serialNumberLabel.text = item.serialNumber;
+    cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
+    cell.thumbnailView.image = item.thumbnail; 
+    
+    __weak BNRItemCell *weakCell = cell; // break strong reference cycle
+    
+    cell.actionBlock = ^{
+        NSLog(@"Going to show image for %@", item);
+        
+        BNRItemCell *strongCell = weakCell;
+        
+        if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+            NSString *itemKey = item.itemKey;
+            
+            UIImage *img = [[BNRImageStore sharedStore] imageForKey:itemKey];
+            if (!img) {
+                return; // don't display anything
+            }
+            
+            // Rectangle for thumbnail frame relative to table view
+            /*CGRect rect = [self.view convertRect:cell.thumbnailView.bounds
+                                        fromView:cell.thumbnailView];*/
+            CGRect rect = [self.view convertRect:strongCell.thumbnailView.bounds
+                                        fromView:strongCell.thumbnailView];
+            
+            BNRImageViewController *ivc = [[BNRImageViewController alloc] init];
+            ivc.image = img;
+            
+            // 600x600 popover
+            self.imagePopover = [[UIPopoverController alloc] initWithContentViewController:ivc];
+            self.imagePopover.popoverContentSize = CGSizeMake(600, 600);
+            [self.imagePopover presentPopoverFromRect:rect
+                                               inView:self.view
+                             permittedArrowDirections:UIPopoverArrowDirectionAny
+                                             animated:YES];
+            
+        }
+    };
     
     return cell;
 }
@@ -86,15 +134,25 @@
 {
     [super viewDidLoad];
     
+    /*
     // If there are no cells in the reuse pool, instantiate UITableViewCells with the reuse identifier
     // This is necessary when we don't explicitly create our cells and depend on reusing cells
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
+    */
+    
     /*
     // Tell the table about its headerView
     UIView *header = self.headerView;
     [self.tableView setTableHeaderView:header];
      */
+    
+    // Register BNRItemCell.xib for the BNRItemCell reuse identifier
+    // Load NIB File
+    UINib *nib = [UINib nibWithNibName:@"BNRItemCell"
+                                bundle:nil];
+    [self.tableView registerNib:nib
+         forCellReuseIdentifier:@"BNRItemCell"];
     
 }
 
@@ -102,6 +160,8 @@
 {
     // Create a new BNRItem, insert into sharedStore, find out its index
     BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
+    
+    /* //Old implementation - added a new row with the new item
     NSInteger lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
     
     //NSInteger lastRow = [self.tableView numberOfRowsInSection:0]; // after the last item
@@ -110,6 +170,22 @@
     // Insert new row into table
     [self.tableView insertRowsAtIndexPaths:@[indexPath]
                           withRowAnimation:UITableViewRowAnimationTop];
+    */
+    
+    // New implementation - have a detail view controller pop up
+    BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] initForNewItem:YES];
+    detailViewController.item = newItem;
+    
+    detailViewController.dismissBlock = ^{
+        [self.tableView reloadData]; 
+    };
+    
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:detailViewController];
+    navController.modalPresentationStyle = UIModalPresentationFormSheet;
+    navController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal; 
+    [self presentViewController:navController animated:YES completion:nil]; 
+    
     
 }
 
@@ -170,7 +246,8 @@ moveRowAtIndexPath:(nonnull NSIndexPath *)sourceIndexPath
 }
 
 // Gold challenge
-- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+- (NSString *)tableView:(UITableView *)tableView
+    titleForDeleteConfirmationButtonForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return @"FINISH ME";
 }
@@ -178,7 +255,9 @@ moveRowAtIndexPath:(nonnull NSIndexPath *)sourceIndexPath
 - (void)tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] init];
+    // We made this one throw an exception because we no longer want to use init
+    // BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] init];
+    BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] initForNewItem:NO];
     
     NSArray *items = [[BNRItemStore sharedStore] allItems];
     BNRItem *selectedItem = items[indexPath.row];
@@ -199,4 +278,8 @@ moveRowAtIndexPath:(nonnull NSIndexPath *)sourceIndexPath
     [self.tableView reloadData]; 
 }
 
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    self.imagePopover = nil;
+}
 @end

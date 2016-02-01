@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface BNRItem : NSObject
+@interface BNRItem : NSObject <NSCoding>
 {
  
 }
@@ -18,10 +19,13 @@
 @property (nonatomic) int valueInDollars;
 @property (nonatomic, readonly, strong) NSDate *dateCreated;
 
-@property (nonatomic, copy) NSString *itemKey; 
+@property (nonatomic, copy) NSString *itemKey;
+
+@property (nonatomic, strong) UIImage *thumbnail;
+- (void)setThumbnailFromImage:(UIImage *)image;
 
 // Class Methods
-+ (instancetype)randomItem; 
++ (instancetype)randomItem;
 
 // Initializers
 // Designated initializer

@@ -14,6 +14,7 @@
 
 @property (nonatomic) NSMutableArray *privateAllItems; 
 
+
 @end
 
 @implementation BNRItemStore
@@ -23,10 +24,17 @@
 {
     static BNRItemStore *sharedStore = nil; // declared and initialized at the start of the program - not every time the method is called
     
-    // Creates single instance the first time this method is called
+    /*// Creates single instance the first time this method is called
     if (!sharedStore) {
         sharedStore = [[self alloc] initPrivate];
     }
+     */
+    
+    // thread-safe
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedStore = [[self alloc] initPrivate];
+    });
     
     return sharedStore;
 }
@@ -46,7 +54,14 @@
     
     // instantiate privateAllItems
     if(self) {
-        _privateAllItems = [[NSMutableArray alloc] init];
+        //_privateAllItems = [[NSMutableArray alloc] init];
+        NSString *path = [self itemArchivePath];
+        _privateAllItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+        // If nothing was previously saved
+        if (!_privateAllItems) {
+            _privateAllItems = [[NSMutableArray alloc] init];
+        }
     }
     
     return self;
@@ -55,7 +70,8 @@
 - (BNRItem *)createItem
 {
     NSLog(@"Creating a random item");
-    BNRItem *item = [BNRItem randomItem];
+    //BNRItem *item = [BNRItem randomItem];
+    BNRItem *item = [[BNRItem alloc] init];
     
     [self.privateAllItems addObject:item];
     
@@ -90,6 +106,31 @@
 - (NSArray *)allItems
 {
     return self.privateAllItems;
+}
+
+
+- (NSString *)itemArchivePath
+{
+    // Find paths that have the NSDocumentDirectory - there will only be one on iOS 
+    NSArray *documentDirectories =
+        NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    // Get a document directory from that list
+    NSString *documentDirectory = [documentDirectories firstObject];
+    
+    return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
+    
+    
+    
+}
+
+- (BOOL)saveChanges
+{
+    NSString *path = [self itemArchivePath];
+    NSLog(@"%@",path);
+    // Returns YES on success
+    return [NSKeyedArchiver archiveRootObject:self.privateAllItems
+                                       toFile:path];
 }
 
 
