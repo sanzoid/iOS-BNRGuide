@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A633ECA1C65356A003698E2 /* BNRWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A633EC91C65356A003698E2 /* BNRWebViewController.m */; };
+		5AD486EE1C6182F400F44991 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD486ED1C6182F400F44991 /* main.m */; };
+		5AD486F11C6182F400F44991 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD486F01C6182F400F44991 /* AppDelegate.m */; };
+		5AD486F31C6182F400F44991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD486F21C6182F400F44991 /* Assets.xcassets */; };
+		5AD486F61C6182F400F44991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD486F41C6182F400F44991 /* LaunchScreen.storyboard */; };
+		5AD487011C6182F500F44991 /* NerdfeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD487001C6182F500F44991 /* NerdfeedTests.m */; };
+		5AD4870C1C6182F500F44991 /* NerdfeedUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD4870B1C6182F500F44991 /* NerdfeedUITests.m */; };
+		5AD4871B1C61837200F44991 /* BNRCoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD4871A1C61837200F44991 /* BNRCoursesViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5AD486FD1C6182F500F44991 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AD486E11C6182F400F44991 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AD486E81C6182F400F44991;
+			remoteInfo = Nerdfeed;
+		};
+		5AD487081C6182F500F44991 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AD486E11C6182F400F44991 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AD486E81C6182F400F44991;
+			remoteInfo = Nerdfeed;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5A633EC81C65356A003698E2 /* BNRWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRWebViewController.h; sourceTree = "<group>"; };
+		5A633EC91C65356A003698E2 /* BNRWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRWebViewController.m; sourceTree = "<group>"; };
+		5AD486E91C6182F400F44991 /* Nerdfeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nerdfeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD486ED1C6182F400F44991 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5AD486EF1C6182F400F44991 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5AD486F01C6182F400F44991 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5AD486F21C6182F400F44991 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5AD486F51C6182F400F44991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5AD486F71C6182F400F44991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AD486FC1C6182F500F44991 /* NerdfeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NerdfeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD487001C6182F500F44991 /* NerdfeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NerdfeedTests.m; sourceTree = "<group>"; };
+		5AD487021C6182F500F44991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AD487071C6182F500F44991 /* NerdfeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NerdfeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD4870B1C6182F500F44991 /* NerdfeedUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NerdfeedUITests.m; sourceTree = "<group>"; };
+		5AD4870D1C6182F500F44991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AD487191C61837200F44991 /* BNRCoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRCoursesViewController.h; sourceTree = "<group>"; };
+		5AD4871A1C61837200F44991 /* BNRCoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRCoursesViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AD486E61C6182F400F44991 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AD486F91C6182F500F44991 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AD487041C6182F500F44991 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5AD486E01C6182F400F44991 = {
+			isa = PBXGroup;
+			children = (
+				5AD486EB1C6182F400F44991 /* Nerdfeed */,
+				5AD486FF1C6182F500F44991 /* NerdfeedTests */,
+				5AD4870A1C6182F500F44991 /* NerdfeedUITests */,
+				5AD486EA1C6182F400F44991 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5AD486EA1C6182F400F44991 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AD486E91C6182F400F44991 /* Nerdfeed.app */,
+				5AD486FC1C6182F500F44991 /* NerdfeedTests.xctest */,
+				5AD487071C6182F500F44991 /* NerdfeedUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5AD486EB1C6182F400F44991 /* Nerdfeed */ = {
+			isa = PBXGroup;
+			children = (
+				5AD486EF1C6182F400F44991 /* AppDelegate.h */,
+				5AD486F01C6182F400F44991 /* AppDelegate.m */,
+				5AD487191C61837200F44991 /* BNRCoursesViewController.h */,
+				5AD4871A1C61837200F44991 /* BNRCoursesViewController.m */,
+				5A633EC81C65356A003698E2 /* BNRWebViewController.h */,
+				5A633EC91C65356A003698E2 /* BNRWebViewController.m */,
+				5AD486EC1C6182F400F44991 /* Supporting Files */,
+			);
+			path = Nerdfeed;
+			sourceTree = "<group>";
+		};
+		5AD486EC1C6182F400F44991 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AD486F21C6182F400F44991 /* Assets.xcassets */,
+				5AD486F41C6182F400F44991 /* LaunchScreen.storyboard */,
+				5AD486F71C6182F400F44991 /* Info.plist */,
+				5AD486ED1C6182F400F44991 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5AD486FF1C6182F500F44991 /* NerdfeedTests */ = {
+			isa = PBXGroup;
+			children = (
+				5AD487001C6182F500F44991 /* NerdfeedTests.m */,
+				5AD487021C6182F500F44991 /* Info.plist */,
+			);
+			path = NerdfeedTests;
+			sourceTree = "<group>";
+		};
+		5AD4870A1C6182F500F44991 /* NerdfeedUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5AD4870B1C6182F500F44991 /* NerdfeedUITests.m */,
+				5AD4870D1C6182F500F44991 /* Info.plist */,
+			);
+			path = NerdfeedUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5AD486E81C6182F400F44991 /* Nerdfeed */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AD487101C6182F500F44991 /* Build configuration list for PBXNativeTarget "Nerdfeed" */;
+			buildPhases = (
+				5AD486E51C6182F400F44991 /* Sources */,
+				5AD486E61C6182F400F44991 /* Frameworks */,
+				5AD486E71C6182F400F44991 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nerdfeed;
+			productName = Nerdfeed;
+			productReference = 5AD486E91C6182F400F44991 /* Nerdfeed.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5AD486FB1C6182F500F44991 /* NerdfeedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AD487131C6182F500F44991 /* Build configuration list for PBXNativeTarget "NerdfeedTests" */;
+			buildPhases = (
+				5AD486F81C6182F500F44991 /* Sources */,
+				5AD486F91C6182F500F44991 /* Frameworks */,
+				5AD486FA1C6182F500F44991 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AD486FE1C6182F500F44991 /* PBXTargetDependency */,
+			);
+			name = NerdfeedTests;
+			productName = NerdfeedTests;
+			productReference = 5AD486FC1C6182F500F44991 /* NerdfeedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5AD487061C6182F500F44991 /* NerdfeedUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AD487161C6182F500F44991 /* Build configuration list for PBXNativeTarget "NerdfeedUITests" */;
+			buildPhases = (
+				5AD487031C6182F500F44991 /* Sources */,
+				5AD487041C6182F500F44991 /* Frameworks */,
+				5AD487051C6182F500F44991 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AD487091C6182F500F44991 /* PBXTargetDependency */,
+			);
+			name = NerdfeedUITests;
+			productName = NerdfeedUITests;
+			productReference = 5AD487071C6182F500F44991 /* NerdfeedUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5AD486E11C6182F400F44991 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = sanzapps;
+				TargetAttributes = {
+					5AD486E81C6182F400F44991 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = BHCQLQ9GC9;
+					};
+					5AD486FB1C6182F500F44991 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = BHCQLQ9GC9;
+						TestTargetID = 5AD486E81C6182F400F44991;
+					};
+					5AD487061C6182F500F44991 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = BHCQLQ9GC9;
+						TestTargetID = 5AD486E81C6182F400F44991;
+					};
+				};
+			};
+			buildConfigurationList = 5AD486E41C6182F400F44991 /* Build configuration list for PBXProject "Nerdfeed" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5AD486E01C6182F400F44991;
+			productRefGroup = 5AD486EA1C6182F400F44991 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AD486E81C6182F400F44991 /* Nerdfeed */,
+				5AD486FB1C6182F500F44991 /* NerdfeedTests */,
+				5AD487061C6182F500F44991 /* NerdfeedUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5AD486E71C6182F400F44991 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AD486F31C6182F400F44991 /* Assets.xcassets in Resources */,
+				5AD486F61C6182F400F44991 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AD486FA1C6182F500F44991 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AD487051C6182F500F44991 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5AD486E51C6182F400F44991 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A633ECA1C65356A003698E2 /* BNRWebViewController.m in Sources */,
+				5AD486F11C6182F400F44991 /* AppDelegate.m in Sources */,
+				5AD486EE1C6182F400F44991 /* main.m in Sources */,
+				5AD4871B1C61837200F44991 /* BNRCoursesViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AD486F81C6182F500F44991 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AD487011C6182F500F44991 /* NerdfeedTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AD487031C6182F500F44991 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AD4870C1C6182F500F44991 /* NerdfeedUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5AD486FE1C6182F500F44991 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AD486E81C6182F400F44991 /* Nerdfeed */;
+			targetProxy = 5AD486FD1C6182F500F44991 /* PBXContainerItemProxy */;
+		};
+		5AD487091C6182F500F44991 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AD486E81C6182F400F44991 /* Nerdfeed */;
+			targetProxy = 5AD487081C6182F500F44991 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5AD486F41C6182F400F44991 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AD486F51C6182F400F44991 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5AD4870E1C6182F500F44991 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		5AD4870F1C6182F500F44991 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5AD487111C6182F500F44991 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Nerdfeed/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanzapps.Nerdfeed;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5AD487121C6182F500F44991 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Nerdfeed/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanzapps.Nerdfeed;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5AD487141C6182F500F44991 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NerdfeedTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanzapps.NerdfeedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nerdfeed.app/Nerdfeed";
+			};
+			name = Debug;
+		};
+		5AD487151C6182F500F44991 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NerdfeedTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanzapps.NerdfeedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nerdfeed.app/Nerdfeed";
+			};
+			name = Release;
+		};
+		5AD487171C6182F500F44991 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NerdfeedUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanzapps.NerdfeedUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Nerdfeed;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		5AD487181C6182F500F44991 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NerdfeedUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanzapps.NerdfeedUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Nerdfeed;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5AD486E41C6182F400F44991 /* Build configuration list for PBXProject "Nerdfeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AD4870E1C6182F500F44991 /* Debug */,
+				5AD4870F1C6182F500F44991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AD487101C6182F500F44991 /* Build configuration list for PBXNativeTarget "Nerdfeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AD487111C6182F500F44991 /* Debug */,
+				5AD487121C6182F500F44991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AD487131C6182F500F44991 /* Build configuration list for PBXNativeTarget "NerdfeedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AD487141C6182F500F44991 /* Debug */,
+				5AD487151C6182F500F44991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AD487161C6182F500F44991 /* Build configuration list for PBXNativeTarget "NerdfeedUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AD487171C6182F500F44991 /* Debug */,
+				5AD487181C6182F500F44991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5AD486E11C6182F400F44991 /* Project object */;
+}

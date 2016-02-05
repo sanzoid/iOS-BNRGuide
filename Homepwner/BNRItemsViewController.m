@@ -51,6 +51,12 @@
         navItem.rightBarButtonItem = bbiNewItem;
         navItem.leftBarButtonItem = self.editButtonItem;
         
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self
+               selector:@selector(updateTableViewForDynamicTypeSize)
+                   name:UIContentSizeCategoryDidChangeNotification
+                 object:nil];
+        
     }
     
     return self;
@@ -275,11 +281,43 @@ moveRowAtIndexPath:(nonnull NSIndexPath *)sourceIndexPath
 {
     [super viewWillAppear:animated];
     
-    [self.tableView reloadData]; 
+    //[self.tableView reloadData];
+    [self updateTableViewForDynamicTypeSize];   // this will call reloadData
 }
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     self.imagePopover = nil;
 }
+
+
+- (void)updateTableViewForDynamicTypeSize
+{
+    static NSDictionary *cellHeightDictionary;
+    
+    if(!cellHeightDictionary) {
+        cellHeightDictionary = @{ UIContentSizeCategoryExtraSmall : @44,
+                                  UIContentSizeCategorySmall : @44,
+                                  UIContentSizeCategoryMedium : @44,
+                                  UIContentSizeCategoryLarge : @44,
+                                  UIContentSizeCategoryExtraLarge : @55,
+                                  UIContentSizeCategoryExtraExtraLarge : @65,
+                                  UIContentSizeCategoryExtraExtraExtraLarge : @75 };
+    }
+    
+    NSString *userSize = [[UIApplication sharedApplication] preferredContentSizeCategory];
+    
+    // change the cell height based on the user's preferred content size
+    NSNumber *cellHeight = cellHeightDictionary[userSize];
+    [self.tableView setRowHeight:cellHeight.floatValue];
+    [self.tableView reloadData];
+    
+}
+
+- (void)dealloc
+{
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
+}
+
 @end

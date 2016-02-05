@@ -24,6 +24,11 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+
+
 @end
 
 @implementation BNRDetailViewController
@@ -84,6 +89,14 @@
                                                                                         action:@selector(cancel:)];
             self.navigationItem.leftBarButtonItem = cancelItem;
         }
+        
+        // Register for UIContentSizeCategoryDidChangeNotification so it will updateFonts when that happens 
+        NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+        [defaultCenter addObserver:self
+                          selector:@selector(updateFonts)
+                              name:UIContentSizeCategoryDidChangeNotification
+                            object:nil];
+        
     }
     
     return self;
@@ -211,6 +224,8 @@
     // Put image on screen
     self.imageView.image = imageToDisplay;
     
+    [self updateFonts];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -289,5 +304,28 @@
     //[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
 }
+
+// Set the font for each label and field
+- (void)updateFonts
+{
+    // get a preconfigured font that is customized to the user's preferences 
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    
+    self.nameLabel.font = font;
+    self.serialNumberLabel.font = font;
+    self.valueLabel.font = font;
+    self.dateLabel.font = font;
+    
+    self.nameField.font = font;
+    self.serialNumberField.font = font;
+    self.valueField.font = font;
+}
+
+- (void)dealloc
+{
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
+}
+
 
 @end
