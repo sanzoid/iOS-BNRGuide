@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Serial"; ObjectID = "ItT-HW-BDI"; */
+"ItT-HW-BDI.text" = "Serial";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "OvC-qc-y20"; */
+"OvC-qc-y20.title" = "Item";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "UPz-Eo-fbO"; */
+"UPz-Eo-fbO.text" = "Date";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "ffJ-hv-eBe"; */
+"ffJ-hv-eBe.text" = "Name";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "ipe-nA-hVG"; */
+"ipe-nA-hVG.text" = "Value";

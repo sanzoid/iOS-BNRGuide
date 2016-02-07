@@ -16,23 +16,38 @@
 
 @implementation AppDelegate
 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application
+willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    // Create an instance of BNRItemsViewController and set it as the window's ROOT VIEW CONTROLLER
-    BNRItemsViewController *itemsViewController = [[BNRItemsViewController alloc] init];
-    self.window.rootViewController = itemsViewController;
+    // If state restoration did not occur
+    if (!self.window.rootViewController) {
+        // Create an instance of BNRItemsViewController and set it as the window's ROOT VIEW CONTROLLER
+        BNRItemsViewController *itemsViewController = [[BNRItemsViewController alloc] init];
+        self.window.rootViewController = itemsViewController;
+        
+        // Create an instance of UINavigationController where its ROOT VIEW CONTROLLER is itemsViewController (the root screen)
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
+        
+        // Give navigation controller a restoration identifier
+        navController.restorationIdentifier = NSStringFromClass([navController class]); 
+        
+        // set the navigatin controller as the window's root view controller
+        self.window.rootViewController = navController;
+    }
     
-    // Create an instance of UINavigationController where its ROOT VIEW CONTROLLER is itemsViewController (the root screen)
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
-    
-    // set the navigatin controller as the window's root view controller
-    self.window.rootViewController = navController;
-    
-    
-    self.window.backgroundColor = [UIColor whiteColor];
+    //self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -66,4 +81,37 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+- (BOOL)application:(UIApplication *)application
+shouldSaveApplicationState:(NSCoder *)coder
+{
+    // Opt in to State Restoration
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+shouldRestoreApplicationState:(NSCoder *)coder
+{
+    // Opt in to State Restoration
+    return YES;
+}
+
+- (UIViewController *)application:(UIApplication *)application
+viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents
+                            coder:(NSCoder *)coder
+{
+    // Create a new navigation controller
+    UIViewController *vc = [[UINavigationController alloc] init];
+    
+    // last object in path array is restoration identifier
+    vc.restorationIdentifier = [identifierComponents lastObject];
+    
+    // if only 1 identifier component, then this is the root view controller 
+    if ([identifierComponents count] == 1) {
+        self.window.rootViewController = vc;
+    }
+    
+    return vc;
+    
+}
 @end
