@@ -28,6 +28,7 @@
 		5AD7A04C1C67DC6E004F095D /* BNRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD7A04E1C67DC6E004F095D /* BNRDetailViewController.xib */; };
 		5AD7A0571C67E3AF004F095D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AD7A0591C67E3AF004F095D /* Localizable.strings */; };
 		5AD7A05B1C67E3D7004F095D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AD7A05D1C67E3D7004F095D /* Localizable.strings */; };
+		5AD7A0601C68296C004F095D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5AD7A05F1C68296C004F095D /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		5AD7A05A1C67E3BC004F095D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5AD7A05C1C67E3D7004F095D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5AD7A05E1C67E3D9004F095D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5AD7A05F1C68296C004F095D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,9 @@
 		5A8E2F171C52E59F00445B5A /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				5AD7A05F1C68296C004F095D /* Settings.bundle */,
+				5A8E2F1B1C52E59F00445B5A /* AppDelegate.h */,
+				5A8E2F1C1C52E59F00445B5A /* AppDelegate.m */,
 				5A8E2F4B1C52EC8F00445B5A /* BNRItemStore.h */,
 				5A8E2F4C1C52EC8F00445B5A /* BNRItemStore.m */,
 				5A8E2F451C52E70700445B5A /* BNRItemsViewController.h */,
@@ -154,8 +159,6 @@
 				5A0775C61C5FC4C300499B34 /* BNRItemCell.h */,
 				5A0775C71C5FC4C300499B34 /* BNRItemCell.m */,
 				5A0775C91C5FC51600499B34 /* BNRItemCell.xib */,
-				5A8E2F1B1C52E59F00445B5A /* AppDelegate.h */,
-				5A8E2F1C1C52E59F00445B5A /* AppDelegate.m */,
 				5A633ECB1C657543003698E2 /* Homepwner.xcdatamodeld */,
 				5A633ED11C658147003698E2 /* BNRItem+CoreDataProperties.h */,
 				5A633ED21C658147003698E2 /* BNRItem+CoreDataProperties.m */,
@@ -314,6 +317,7 @@
 				5A8E2F1F1C52E59F00445B5A /* Assets.xcassets in Resources */,
 				5A8E2F221C52E59F00445B5A /* LaunchScreen.storyboard in Resources */,
 				5A0775CA1C5FC51600499B34 /* BNRItemCell.xib in Resources */,
+				5AD7A0601C68296C004F095D /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

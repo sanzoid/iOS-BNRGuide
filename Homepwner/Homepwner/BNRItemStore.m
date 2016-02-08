@@ -9,6 +9,7 @@
 #import "BNRItemStore.h"
 #import "BNRItem.h"
 #import "BNRImageStore.h"
+#import "AppDelegate.h"
 
 @import CoreData;
 
@@ -123,6 +124,12 @@
     BNRItem *item = [NSEntityDescription insertNewObjectForEntityForName:@"BNRItem"
                                                   inManagedObjectContext:self.context];
     item.orderingValue = order;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    item.valueInDollars = [defaults integerForKey:BNRNextItemValuePrefsKey];
+    item.itemName = [defaults objectForKey:BNRNextItemNamePrefsKey];
+    
+    NSLog(@"defaults = %@", [defaults dictionaryRepresentation]); 
     
     [self.privateAllItems addObject:item];
     

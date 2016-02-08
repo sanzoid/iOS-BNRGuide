@@ -11,7 +11,7 @@
 #import "BNRImageStore.h"
 #import "BNRItemStore.h"
 #import "BNRAssetTypeViewController.h"
-
+#import "AppDelegate.h";
 
 @interface BNRDetailViewController ()
     <UINavigationControllerDelegate, UIImagePickerControllerDelegate,
@@ -254,7 +254,19 @@
     BNRItem *item = self.item;
     item.itemName = self.nameField.text;
     item.serialNumber = self.serialNumberField.text;
-    item.valueInDollars = [self.valueField.text intValue];
+    //item.valueInDollars = [self.valueField.text intValue];
+    
+    int newValue = [self.valueField.text intValue];
+    
+    // if what's in the valueField has changed
+    if (newValue != item.valueInDollars) {
+        item.valueInDollars = newValue; // update the item
+        
+        // Update the default
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setInteger:newValue
+                      forKey:BNRNextItemValuePrefsKey];
+    }
     
 }
 

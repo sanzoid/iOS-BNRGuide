@@ -10,11 +10,25 @@
 #import "BNRItemsViewController.h"
 #import "BNRItemStore.h"
 
+
+// Define global variables
+NSString * const BNRNextItemValuePrefsKey = @"NextItemValue";
+NSString * const BNRNextItemNamePrefsKey = @"NextItemName";
+
 @interface AppDelegate ()
 
 @end
 
+
 @implementation AppDelegate
+
++ (void)initialize
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *factorySettings = @{ BNRNextItemValuePrefsKey: @75, 
+                                       BNRNextItemNamePrefsKey: @"Dung" };
+    [defaults registerDefaults:factorySettings];
+}
 
 - (BOOL)application:(UIApplication *)application
 willFinishLaunchingWithOptions:(NSDictionary *)launchOptions

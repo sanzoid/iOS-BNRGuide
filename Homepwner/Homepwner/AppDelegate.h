@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+// Preference keys
+extern NSString * const BNRNextItemValuePrefsKey;
+extern NSString * const BNRNextItemNamePrefsKey;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
