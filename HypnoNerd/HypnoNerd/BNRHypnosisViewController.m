@@ -10,6 +10,9 @@
 #import "BNRHypnosisView.h"
 
 @interface BNRHypnosisViewController () <UITextFieldDelegate>
+
+@property (nonatomic, weak) UITextField *textField;
+
 @end
 
 @implementation BNRHypnosisViewController
@@ -40,7 +43,7 @@
     BNRHypnosisView *backgroundView = [[BNRHypnosisView alloc] init];
     
     // Create a text field
-    CGRect textFieldRect = CGRectMake(40, 70, 240, 30);
+    CGRect textFieldRect = CGRectMake(40, -20, 240, 30);
     UITextField *textField = [[UITextField alloc] initWithFrame:textFieldRect];
     // UITextInputTraits
     textField.borderStyle = UITextBorderStyleRoundedRect;
@@ -55,6 +58,8 @@
     
     // Add text field as a subview to the backgroundView
     [backgroundView addSubview:textField];
+    
+    self.textField = textField;
     
     // Set it as the view of this view controller
     self.view = backgroundView;
@@ -111,6 +116,32 @@
         // Add label to view
         [self.view addSubview:messageLabel];
         
+        messageLabel.alpha = 0.0;   // initial alpha
+        
+        /*[UIView animateWithDuration:0.5 animations:^{
+            messageLabel.alpha = 1.0;   // animate to this alpha
+         }];*/
+        [UIView animateWithDuration:0.5 // duration
+                              delay:0.0 // how long to delay before beginning
+                            options:UIViewAnimationOptionCurveEaseIn/*|UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionAutoreverse|UIViewAnimationOptionRepeat*/ // timing functions and other options
+                         animations:^{  // animation block to do
+                             messageLabel.alpha = 1.0;
+                         }
+                         completion:NULL];  // method to call on completion
+        
+        [UIView animateKeyframesWithDuration:1.0 delay:0.0 options:0 animations:^{
+            [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:0.8 animations:^{
+                messageLabel.center = self.view.center;
+            }];
+            [UIView addKeyframeWithRelativeStartTime:0.8 relativeDuration:0.2 animations:^{
+                int x = arc4random() % width;
+                int y = arc4random() % height;
+                messageLabel.center = CGPointMake(x, y);
+            }];
+        } completion:^(BOOL finished) {
+            NSLog(@"Finished!");
+        }];
+        
         UIInterpolatingMotionEffect *motionEffect;
         motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
         motionEffect.minimumRelativeValue = @(-50);
@@ -125,6 +156,23 @@
         
         
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [UIView animateWithDuration:4.0
+                          delay:0.0
+         usingSpringWithDamping:0.25
+          initialSpringVelocity:0
+                        options:0
+                     animations:^{
+                         // Moves the frame down
+                         CGRect frame = CGRectMake(40, 70, 240, 30);
+                         self.textField.frame = frame;
+                     }
+                     completion:NULL];
 }
 
 @end
